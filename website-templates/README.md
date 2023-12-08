@@ -79,7 +79,7 @@
 |  67   | swifty-business-html5-website-template						      |[live example](https://hotanhung2001.github.io/website-templates/swifty-business-html5-website-template/)|						      
 |  68   | target-multipurpose-free-bootstrap-responsive-template		      |[live example](https://hotanhung2001.github.io/website-templates/target-multipurpose-free-bootstrap-responsive-template/)|		      
 |  69   | team-business-flat-bootstrap-html5-template					      |[live example](https://hotanhung2001.github.io/website-templates/team-business-flat-bootstrap-html5-template/)|					      
-|  70   | tech-city-free-coming-soon-bootstrap-responsive-template	      |[live example]https://hotanhung2001.github.io/website-templates/tech-city-free-coming-soon-bootstrap-responsive-template/)|	      
+|  70   | tech-city-free-coming-soon-bootstrap-responsive-template	      |[live example](https://hotanhung2001.github.io/website-templates/tech-city-free-coming-soon-bootstrap-responsive-template/)|	      
 |  71   | techking-free-html5-template-for-corporate-business			      |[live example](https://hotanhung2001.github.io/website-templates/techking-free-html5-template-for-corporate-business/)|			      
 |  72   | techro														      |[live example](https://hotanhung2001.github.io/website-templates/techro/)|														      
 |  73   | the-best-wedding-free-bootstrap-template					      |[live example](https://hotanhung2001.github.io/website-templates/the-best-wedding-free-bootstrap-template/)|					      
