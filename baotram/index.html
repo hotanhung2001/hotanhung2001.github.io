@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Đà Nẵng Travel Car Rental</title>
+<style>
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9faff;
+    color: #222;
+    line-height: 1.6;
+  }
+  a {
+    color: #0077cc;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  /* Container */
+  .container {
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+  /* Header */
+  header {
+    background-color: #0077cc;
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 1.5px;
+    margin: 0;
+  }
+  nav a {
+    color: white;
+    margin-left: 20px;
+    font-weight: 600;
+  }
+  nav a:hover {
+    color: #ffc107;
+  }
+  /* Hero section */
+  .hero {
+    background: linear-gradient(135deg, #0077cc 0%, #00bfff 100%);
+    color: white;
+    padding: 120px 20px 80px;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  }
+  .hero h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+  }
+  .hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  }
+  .btn-primary {
+    background-color: #ffc107;
+    border: none;
+    color: #222;
+    font-size: 1.1rem;
+    padding: 15px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    transition: background-color 0.3s ease;
+  }
+  .btn-primary:hover {
+    background-color: #e6b800;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.25);
+  }
+  /* Section titles */
+  h3.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin: 60px 0 40px;
+    color: #0077cc;
+    position: relative;
+    font-weight: 700;
+  }
+  h3.section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: #ffc107;
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+  /* About section */
+  #about {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+    font-size: 1.1rem;
+    color: #444;
+  }
+  /* Cars/services */
+  #services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 20px 40px;
+  }
+  .service-card {
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    width: 280px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.15);
+  }
+  .service-card img {
+    width: 100%;
+    display: block;
+    height: 180px;
+    object-fit: cover;
+  }
+  .service-card .service-content {
+    padding: 20px;
+    flex-grow: 1;
+  }
+  .service-card h4 {
+    margin-top: 0;
+    font-weight: 700;
+    color: #0077cc;
+  }
+  .service-card p {
+    margin: 10px 0 0;
+    color: #555;
+    font-size: 0.95rem;
+  }
+
+  #destinations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 20px 40px;
+  }
+
+  /* Features/benefits */
+  #features {
+    background: #0077cc;
+    color: white;
+    padding: 50px 20px;
+  }
+  #features .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  .feature-item {
+    max-width: 300px;
+    text-align: center;
+  }
+  .feature-item svg {
+    width: 50px;
+    height: 50px;
+    fill: #ffc107;
+    margin-bottom: 15px;
+  }
+  .feature-item h5 {
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .feature-item p {
+    font-size: 0.95rem;
+  }
+  
+  /* Testimonials */
+  #testimonials {
+    padding: 60px 20px;
+    background: #eef5fc;
+  }
+  .testimonial-card {
+    background: white;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 25px 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-style: italic;
+    color: #333;
+    position: relative;
+  }
+  .testimonial-card::before {
+    content: "“";
+    font-size: 6rem;
+    color: #ffc107;
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    opacity: 0.3;
+    font-weight: 700;
+  }
+  .testimonial-author {
+    margin-top: 25px;
+    font-weight: 700;
+    color: #0077cc;
+    text-align: right;
+    font-style: normal;
+  }
+  /* Contact */
+  #contact {
+    max-width: 600px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+  }
+  #contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  #contact input, #contact textarea {
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    resize: vertical;
+  }
+  #contact input:focus, #contact textarea:focus {
+    border-color: #0077cc;
+    outline: none;
+  }
+  #contact button {
+    align-self: center;
+    background-color: #ffc107;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #222;
+    transition: background-color 0.3s ease;
+  }
+  #contact button:hover {
+    background-color: #e6b800;
+  }
+  /* Footer */
+  footer {
+    background-color: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 0.9rem;
+  }
+  footer a {
+    color: #ffc107;
+  }
+  footer a:hover {
+    color: white;
+  }
+  /* Responsive */
+  @media (max-width: 860px) {
+    #services {
+      flex-direction: column;
+      align-items: center;
+    }
+    #features .container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>Đà Nẵng Travel Car Rental</h1>
+    <nav>
+      <a href="#about">Về chúng tôi</a>
+      <a href="#services">Dòng Xe</a>
+      <a href="#features">Tiện Lợi</a>
+      <a href="#destinations">Địa Điểm</a>
+      <a href="#testimonials">Nhận Xét</a>
+      <a href="#contact">Liên Hệ</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <div>
+    <h2>Thuê Xe Du Lịch & Di Chuyển Đà Nẵng</h2>
+    <p>Xe đời mới, giá tốt, tài xế thân thiện - đồng hành cùng chuyến đi của bạn</p>
+    <button class="btn-primary" onclick="bookNow()">Đặt Xe Ngay</button>
+  </div>
+</section>
+
+<section id="about" class="container">
+  <h3 class="section-title">Về Chúng Tôi</h3>
+  <p>Chúng tôi cung cấp dịch vụ cho thuê xe đa dạng tại Đà Nẵng, phục vụ cho nhu cầu du lịch và di chuyển cá nhân hay nhóm. Với đội xe đời mới, tài xế kinh nghiệm, luôn sẵn sàng hỗ trợ bạn mọi lúc mọi nơi để chuyến đi của bạn thật suôn sẻ, an toàn và thoải mái.</p>
+</section>
+
+<section id="services" class="container">
+  <h3 class="section-title">Dòng Xe Cho Thuê</h3>
+
+  <div class="service-card">
+    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80" alt="Xe Sedan" />
+    <div class="service-content">
+      <h4>Xe Sedan - Sang trọng & Tiện nghi</h4>
+      <p>Phù hợp cho gia đình hoặc nhóm nhỏ, xe 4 chỗ tiện nghi cao cấp, nội thất thoải mái.</p>
+    </div>
+  </div>
+
+  <div class="service-card">
+    <img src="https://toyotahaiduonghd.com.vn/wp-content/uploads/2019/12/xe-suv-la-gi.jpg" alt="Xe SUV" />
+    <div class="service-content">
+      <h4>Xe SUV - Rộng rãi & Mạnh mẽ</h4>
+      <p>Dành cho nhóm từ 5-7 người, thích hợp địa hình đa dạng và du lịch dài ngày.</p>
+    </div>
+  </div>
+
+  <div class="service-card">
+    <img src="https://vielimousine.com/wp-content/uploads/2021/12/DSC6090.jpg" alt="Xe Limousine" />
+    <div class="service-content">
+      <h4>Xe Limousine - Sang trọng & Đẳng cấp</h4>
+      <p>Tận hưởng tiện nghi cao cấp cho hành trình thoải mái, thích hợp sự kiện đặc biệt.</p>
+    </div>
+  </div>
+
+</section>
+
+
+<section id="destinations" class="container">
+  <h3 class="section-title">Các Địa Điểm Nổi Bật</h3>
+
+  <div class="service-card">
+    <img src="https://dulichconvoi.com/wp-content/uploads/2021/05/Da-Nang-Ba-Na-Hills-1.jpg" alt="Bà Nà Hills" />
+    <div class="service-content">
+      <h4>Đà Nẵng → Bà Nà Hills (4/7 chỗ)</h4>
+      <p>Giá: 800.000đ – 1.000.000đ<br>Tham quan khu vui chơi & cáp treo Bà Nà Hills, đi về trong ngày.</p>
+    </div>
+  </div>
+
+  <div class="service-card">
+    <img src="https://eggyolk.vn/wp-content/uploads/2024/06/Du-lich-Hoi-An.jpg" alt="Hội An" />
+    <div class="service-content">
+      <h4>Đà Nẵng → Hội An (4/7 chỗ)</h4>
+      <p>Giá: 600.000đ – 900.000đ<br>Khám phá phố cổ Hội An, ăn đặc sản, chụp ảnh đèn lồng.</p>
+    </div>
+  </div>
+
+  <div class="service-card">
+    <img src="https://i2.ex-cdn.com/crystalbay.com/files/content/2024/06/03/cam-nang-du-lich-hue-1-1550.jpg" alt="Huế" />
+    <div class="service-content">
+      <h4>Đà Nẵng → Huế (4/7 chỗ)</h4>
+      <p>Giá: 1.200.000đ – 1.400.000đ<br>Thăm Đại Nội, chùa Thiên Mụ và các lăng tẩm nổi tiếng tại Huế.</p>
+    </div>
+  </div>
+
+  <div class="service-card">
+    <img src="https://hn.ss.bfcplatform.vn/tckt/2018/02/18A02024-tckt.vn-01.jpg" alt="Mỹ Sơn" />
+    <div class="service-content">
+      <h4>Đà Nẵng → Thánh địa Mỹ Sơn (4/7 chỗ)</h4>
+      <p>Giá: 900.000đ – 1.100.000đ<br>Tham quan di sản văn hóa Chăm Pa cổ kính tại Mỹ Sơn.</p>
+    </div>
+  </div>
+
+  <div class="service-card">
+    <img src="https://tourhue.vn/wp-content/uploads/2024/07/lang-co-hue-2.jpg" alt="Lăng Cô" />
+    <div class="service-content">
+      <h4>Đà Nẵng → Lăng Cô (4/7 chỗ)</h4>
+      <p>Giá: 950.000đ – 1.150.000đ<br>Biển Lăng Cô trong xanh, kết hợp nghỉ dưỡng và chụp ảnh.</p>
+    </div>
+  </div>
+
+  <div class="service-card">
+    <img src="https://i2.ex-cdn.com/crystalbay.com/files/content/2024/10/09/deo-hai-van-da-nang-kham-pha-cung-duong-deo-dep-nhat-viet-nam-2-1123.jpg" alt="Đèo Hải Vân" />
+    <div class="service-content">
+      <h4>Đà Nẵng → Đèo Hải Vân (4/7 chỗ)</h4>
+      <p>Giá: 700.000đ – 900.000đ<br>Trải nghiệm cung đường đèo đẹp nhất Việt Nam, dừng chụp ảnh.</p>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <h3 class="section-title" style="color: white;">Lý Do Chọn Chúng Tôi</h3>
+
+    <div class="feature-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 4.25 7 13 7 13s7-8.75 7-13a7 7 0 0 0-7-7z"/></svg>
+      <h5>Địa Chỉ Uy Tín & An Toàn</h5>
+      <p>Tất cả xe đều được bảo dưỡng định kỳ, tài xế có kinh nghiệm lái xe an toàn.</p>
+    </div>
+
+    <div class="feature-item">
+      <svg viewBox="0 0 24 24"><path d="M5 13c0-3.31 2.69-6 6-6s6 2.69 6 6-3 8-6 8-6-4.69-6-8z"/></svg>
+      <h5>Giá Cạnh Tranh & Linh Hoạt</h5>
+      <p>Giá hợp lý với nhiều gói thuê phù hợp nhu cầu từ ngắn hạn đến dài hạn.</p>
+    </div>
+
+    <div class="feature-item">
+      <svg viewBox="0 0 24 24"><path d="M8 5v.01M12 5v.01M16 5v.01M9 10h6M10 15h4"/></svg>
+      <h5>Dịch Vụ Khách Hàng Tận Tâm</h5>
+      <p>Hỗ trợ phục vụ 24/7, tư vấn miễn phí để bạn chọn được xe phù hợp nhất.</p>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" class="container">
+  <h3 class="section-title">Khách Hàng Nói Về Chúng Tôi</h3>
+
+  <div class="testimonial-card">
+    <p>Dịch vụ thuê xe rất chuyên nghiệp, tài xế thân thiện, xe mới và sạch. Chuyến đi của tôi ở Đà Nẵng rất suôn sẻ và thoải mái.</p>
+    <div class="testimonial-author">- Nguyễn Trần Bá Quân</div>
+  </div>
+
+  <div class="testimonial-card">
+    <p>Giá thuê hợp lý, thủ tục nhanh gọn. Tôi rất hài lòng với dịch vụ và sẽ tiếp tục đặt xe lần sau khi đến đây.</p>
+    <div class="testimonial-author">- Trần Thị Vân</div>
+  </div>
+
+  <div class="testimonial-card">
+    <p>Xe Limousine sang trọng, nội thất tiện nghi, tài xế lái rất an toàn. Rất đáng để trải nghiệm cho những chuyến đi đặc biệt.</p>
+    <div class="testimonial-author">- Lê Văn Lượng</div>
+  </div>
+</section>
+
+<section id="contact" class="container">
+  <h3 class="section-title">Liên Hệ Đặt Xe</h3>
+  <form onsubmit="submitForm(event)">
+    <input type="text" id="name" name="name" placeholder="Họ và tên" required />
+    <input type="email" id="email" name="email" placeholder="Email" required />
+    <input type="tel" id="phone" name="phone" placeholder="Số điện thoại" required />
+    <textarea id="message" name="message" placeholder="Nhu cầu thuê xe (số người, ngày, điểm đến...)" rows="4" required></textarea>
+    <button type="submit">Gửi Yêu Cầu</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2024 Đà Nẵng Travel Car Rental. All Rights Reserved.</p>
+  <p>Follow us on 
+    <a href="https://www.facebook.com/tran.tram.581043" aria-label="Facebook">Facebook</a> | 
+    <a href="https://www.instagram.com/_baw.chma_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram">Instagram</a> | 
+    <a href="https://zalo.me/07685462" aria-label="Zalo">Zalo</a>
+  </p>
+</footer>
+
+<script>
+  function bookNow() {
+    // For demonstration, open mailto with subject prefilled
+    window.location.href = 'mailto:info@danangrental.com?subject=Đặt xe thuê ở Đà Nẵng';
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    alert('Cảm ơn bạn đã gửi yêu cầu. Chúng tôi sẽ liên hệ lại sớm nhất!');
+    e.target.reset();
+  }
+</script>
+
+</body>
+</html>
+
